@@ -1,0 +1,4 @@
+
+github "ReactiveX/RxSwift" ~> 5.0
+
+gitHub  "pkluz/PKHUD" ~> 5.0
