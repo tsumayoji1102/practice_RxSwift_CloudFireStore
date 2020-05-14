@@ -10,6 +10,7 @@ target 'practice_RxSwift_CloudFileStore' do
   # https://firebase.google.com/docs/ios/setup#available-pods
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift'
 
   target 'practice_RxSwift_CloudFileStoreTests' do
     inherit! :search_paths

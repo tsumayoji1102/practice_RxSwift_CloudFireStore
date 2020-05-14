@@ -19,9 +19,27 @@ class ProfileDao: NSObject {
     
     func createProfile(dic: Dictionary<String, Any>) -> Bool{
         
+        let name = dic["name"] as! String
+        var successFlg = true
         
+        db.collection("profile").document(name).setData(dic)
+        { err in
+            if err != nil {
+                print("\(String(describing: err))")
+                successFlg = false
+            }else{
+                print("success: \(#function)")
+                successFlg = true
+            }
+        }
+        return successFlg
+    }
+    
+    // 読み取り
+    func readProfile(){
         
-        return true
+        let profileList = db.collection("profile").document()
+        
     }
 
 }
