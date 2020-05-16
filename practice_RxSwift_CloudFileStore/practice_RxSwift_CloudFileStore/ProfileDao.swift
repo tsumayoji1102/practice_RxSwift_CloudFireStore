@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import FirebaseFirestoreSwift
+import Foundation
 
 class ProfileDao: NSObject {
     
@@ -36,10 +38,40 @@ class ProfileDao: NSObject {
     }
     
     // 読み取り
-    func readProfile(){
+    func readProfile(completion: @escaping(Array<Profile>) -> Void){
         
-        let profileList = db.collection("profile").document()
-        
+        db.collection("profile").getDocuments {
+            snap, error in
+            
+            if(error != nil){
+                print("error: \(String(describing: error))")
+                return
+            }
+            
+            if(snap == nil){
+                print("failed: No Data")
+                return
+            }else{
+                
+                
+                guard let data = snap?.count else{
+                    print("dataなし")
+                    return
+                }
+                var array = Array<Profile>()
+                
+                for document in snap!.documents {
+                    let data = document.data()
+                    let profile = Profile()
+                    profile.name  = data["name"]  as! String
+                    profile.sex   = data["sex"]   as! String
+                    profile.hobby = data["hobby"] as! String
+                    profile.cake  = data["cake"]  as! String
+                    array.append(profile)
+                }
+                completion(array)
+            }
+        }
     }
 
 }

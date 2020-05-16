@@ -26,6 +26,8 @@ class AddTextViewController: UIViewController {
     var hobbyField: UITextField!
     var cakeField:  UITextField!
     var submitButton:  UIButton!
+    
+    let dao = ProfileDao()
 
     @IBOutlet weak var addTextView: UITableView!
     
@@ -117,19 +119,15 @@ class AddTextViewController: UIViewController {
             return
         }else{
             // firebase
-            let db = Firestore.firestore()
-            var ref: DocumentReference!
-            
-            ref = db.collection("profile").addDocument(data: dic){ err in
-                
-                if err != nil {
-                    print("error: \(err)")
-                }else{
-                    print("success: \(ref.documentID)")
-                }
+            let result = dao.createProfile(dic: dic)
+            if(result){
+                HUD.hide()
+            }else{
+                let alert = UIAlertController(title: "注意", message:"アップに失敗しました。", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                present(alert, animated: true)
+                return
             }
-            HUD.hide()
-            
         }
     }
 }

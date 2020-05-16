@@ -263,12 +263,14 @@ PODS:
     - nanopb/encode (= 0.3.9011)
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
+  - PKHUD (5.3.0)
   - PromisesObjC (1.2.8)
 
 DEPENDENCIES:
   - Firebase/Core
   - Firebase/Firestore
   - FirebaseFirestoreSwift
+  - PKHUD (~> 5.0)
 
 SPEC REPOS:
   trunk:
@@ -291,6 +293,7 @@ SPEC REPOS:
     - gRPC-Core
     - leveldb-library
     - nanopb
+    - PKHUD
     - PromisesObjC
 
 SPEC CHECKSUMS:
@@ -313,8 +316,9 @@ SPEC CHECKSUMS:
   gRPC-Core: c9aef9a261a1247e881b18059b84d597293c9947
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
+  PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
 
-PODFILE CHECKSUM: b6df7b682ddb279a5061e5ca7fab44ea6c8c636e
+PODFILE CHECKSUM: e67bb940dc2d3630ea3085655154bf432b036a01
 
 COCOAPODS: 1.9.0

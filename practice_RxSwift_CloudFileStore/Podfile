@@ -11,6 +11,7 @@ target 'practice_RxSwift_CloudFileStore' do
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
+  pod 'PKHUD', '~> 5.0'
 
   target 'practice_RxSwift_CloudFileStoreTests' do
     inherit! :search_paths
